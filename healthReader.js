@@ -19,6 +19,7 @@ async function healthMetricsCounter(file) {
             return metricsCount;
 
         } catch(error) {
+
             if (error.name === 'TypeError') { 
                 console.log('Health metrics not found: Check your JSON data');
             } else {
@@ -27,6 +28,7 @@ async function healthMetricsCounter(file) {
         }
         
     } catch(error) {
+        
         if (error.code === 'ENOENT') { 
             console.log('File not found: check the file path');
         } else if (error.name === 'SyntaxError') { 
@@ -40,3 +42,5 @@ async function healthMetricsCounter(file) {
 
 //Execute function
 healthMetricsCounter('./data/health-metrics.json')
+
+module.exports = { healthMetricsCounter }
