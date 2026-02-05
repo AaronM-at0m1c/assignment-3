@@ -1,6 +1,7 @@
 const fs = require('fs');
 const csv = require('csv-parser');
 
+//Read CSV data asynchronously
 async function fileReader(file) {
 
     //Wrap in promise for async functionality
