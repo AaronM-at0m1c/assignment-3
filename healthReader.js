@@ -30,17 +30,17 @@ async function healthMetricsCounter(file) {
     } catch(error) {
         
         if (error.code === 'ENOENT') { 
-            console.log('File not found: check the file path');
+            console.log('Health data file not found: check the file path');
         } else if (error.name === 'SyntaxError') { 
             console.log('Invalid JSON: Check the file format'); 
         } else { 
             console.log('Unknown error:', error.message); 
         } 
-        return null;
+        throw error;
     }
 }
 
 //Execute function
-healthMetricsCounter('./data/health-metrics.json')
+//healthMetricsCounter('./data/health-metrics.json')
 
 module.exports = { healthMetricsCounter }

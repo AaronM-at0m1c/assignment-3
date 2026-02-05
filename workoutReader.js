@@ -56,14 +56,16 @@ async function workoutCalculator(file) {
     } catch(error) {
 
         if (error.code === 'ENOENT') { 
-            console.log('CSV file not found check the file path'); 
+            console.log('Workout csv file not found check the file path'); 
         } else { 
-            console.log('Error processing CSV file:', error.message); 
+            console.log('Error processing csv file:', error.message); 
         } 
-        return null;
+        throw error;
 
     }
 }
 
 //Execute function
-workoutCalculator('./data/workouts.csv')
+//workoutCalculator('./data/workouts.csv')
+
+module.exports = { fileReader, workoutCalculator }
