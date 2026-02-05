@@ -4,6 +4,7 @@ const { healthMetricsCounter } = require("./healthReader.js");
 
 async function processFiles() {
 
+    //Begin error handling logic
     try {
 
     //Process workout data
@@ -20,7 +21,7 @@ async function processFiles() {
     console.log("+-----SUMMARY-----+");
     console.log("Workouts found:", workoutdata.workoutLength);
     console.log("Total workout minutes:", workoutdata.workoutTime);
-    console.log("Health entries found:", healthdata);
+    console.log("Health entries found:", healthdata.metrics.length);
     console.log("Weekly goal:", process.env.WEEKLY_GOAL, "minutes");
 
     //Check if user met exercise goal
@@ -29,6 +30,8 @@ async function processFiles() {
     } else {
         console.log("It looks like you were a little short this week. You'll get it next time!");
     }
+
+    //Let imported functions handle errors and exit
     } catch(error) {
         process.exit(1);
     }

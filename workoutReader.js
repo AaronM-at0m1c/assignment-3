@@ -51,7 +51,7 @@ async function workoutCalculator(file) {
     //Print and return calculations
     console.log('Workouts loaded:', workoutLength);
     console.log('Total workout duration:', workoutTime, 'minutes');
-    return { workoutLength, workoutTime };
+    return { workoutData , workoutLength, workoutTime};
 
     } catch(error) {
 
